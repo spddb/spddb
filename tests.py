@@ -4,10 +4,9 @@ from spddb import *
 
 db = ziverdb("hello.db")
 
-
-
-
 db.insert("hello", "world")
+
+
 
 print db.have("hello") == True 
 print db.get("hello") == "world"
@@ -21,3 +20,19 @@ print db.getsize()  == 2
 
 os.remove("hello.db")
 
+db = ziverdb("hello.db")
+
+
+
+
+db.insert("hello", "world")
+
+db.drop("hello.db")
+
+
+try:
+	size = db.getsize()
+except Exception, e:
+	print True 
+else:
+	print False

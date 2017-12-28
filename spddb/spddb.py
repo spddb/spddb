@@ -59,3 +59,9 @@ class ziverdb(dict):
         """ Save changes """
         json.dump(self, open(self.path, 'wt'))
         self.reload()
+
+
+    def drop(self, db):
+        """ Drop database """
+        if os.path.isfile(db):
+            os.remove(db)
