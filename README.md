@@ -25,4 +25,8 @@ Example getsize || Return the hello.db database size in bytes
 Example Delete || Delete specified key && value
 
     >>> db.delete("hello")
+
+Example Drop || Drop specified database file
+
+    >>> db.drop("hello.db")
     
