@@ -1,5 +1,7 @@
 # spddb
 
+[![Build status](https://travis-ci.org/spddb/travis-lab.svg?master)](https://travis-ci.org/spddb)
+
 
 Example Insert || Insert specified value to specified key
 
