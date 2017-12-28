@@ -3,12 +3,14 @@
 # Distributed under the MIT/X11 software license, see the accompanying
 # file license.blockt or http://www.opensource.org/licenses/mit-license.php.
 
-
+import logging 
 import json
 import os 
 
 
 class ziverdb(dict):
+    
+    logfile = None 
 
 
     def __init__(self, path):
@@ -20,15 +22,21 @@ class ziverdb(dict):
 
     def insert(self, key, value):
         """ Insert specified value to specified key """
-        self[key] = value
-        self.save()
-        self.reload()
+        if not self.have(key):
+            self[key] = value
+            self.save()
+            self.reload()
+            if self.logfile:
+                self.logg("Added key %s with value %s" %(key, value))
 
 
     def delete(self, key):
         """ Delete specified key && value """
-        del self[key]
-        self.save()
+        if self.have(key):
+            del self[key]
+            self.save()
+            if self.logfile:
+                self.logg("Deleted key %s" %key)
 
 
     def have(self, key):
@@ -65,3 +73,10 @@ class ziverdb(dict):
         """ Drop database """
         if os.path.isfile(db):
             os.remove(db)
+    
+    
+    def logg(self, msg):
+        logging.basicConfig(level=logging.INFO, 
+                    filename=self.logfile,
+                    format='%(asctime)s %(message)s')
+        logging.info(msg)
