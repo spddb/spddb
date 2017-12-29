@@ -58,6 +58,11 @@ class ziverdb(dict):
         return False
 
 
+    def getkeys(self):
+        """ Return a list with database keys """
+        return self.keys()
+
+
     def getsize(self):
         """ Return database size in bytes """
         return os.stat(self.path).st_size
