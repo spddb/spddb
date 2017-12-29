@@ -2,7 +2,7 @@ spddb
 ========
 
 
-Spddb is a simple python dictionary key-value based database, spddb allow you to log insert and remove operations
+Spddb is a simple python dictionary key-value based database, spddb support logging handler wich allow you log insert and delete operation into a logfile each operation are timestamped
 
 
 ==================
@@ -36,6 +36,7 @@ Commannds
 
    $ insert <key> <value> → Add specified key value 
    $ get <key> → Return the value of the specified key
+   $ getkeys → Return the database keys 
    $ delete <key> → Delete specified key
    $ have <key> → Return True if the key exists False if not 
    $ getsize → Return the database size in bytes
@@ -62,6 +63,8 @@ Look how easy it is to use:
     >>> "world"
     >>> db.getsize()
     >>> 18 
+    >>> db.getkeys()
+    >>> ['hello']
     >>>
     >>> db.delete("hello")
     >>> db.have("hello")

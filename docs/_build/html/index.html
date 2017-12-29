@@ -40,7 +40,7 @@
             
   <div class="section" id="spddb">
 <h1>spddb<a class="headerlink" href="#spddb" title="Permalink to this headline">¶</a></h1>
-<p>Spddb is a simple python dictionary key-value based database, spddb allow you to log insert and remove operations</p>
+<p>Spddb is a simple python dictionary key-value based database, spddb support logging handler wich allow you log insert and delete operation into a logfile each operation are timestamped</p>
 <div class="section" id="installation-guide">
 <h2>Installation guide<a class="headerlink" href="#installation-guide" title="Permalink to this headline">¶</a></h2>
 <p>The recommended (and easiest) way to install spddb:</p>
@@ -54,6 +54,7 @@ $ python setup.py install
 <h2>Commannds<a class="headerlink" href="#commannds" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-sh"><div class="highlight"><pre><span></span>$ insert &lt;key&gt; &lt;value&gt; → Add specified key value
 $ get &lt;key&gt; → Return the value of the specified key
+$ getkeys → Return the database keys
 $ delete &lt;key&gt; → Delete specified key
 $ have &lt;key&gt; → Return True <span class="k">if</span> the key exists False <span class="k">if</span> not
 $ getsize → Return the database size in bytes
@@ -72,6 +73,8 @@ $ getsize → Return the database size in bytes
 <span class="gp">&gt;&gt;&gt; </span><span class="s2">&quot;world&quot;</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">db</span><span class="o">.</span><span class="n">getsize</span><span class="p">()</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="mi">18</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">db</span><span class="o">.</span><span class="n">getkeys</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="p">[</span><span class="s1">&#39;hello&#39;</span><span class="p">]</span>
 <span class="go">&gt;&gt;&gt;</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">db</span><span class="o">.</span><span class="n">delete</span><span class="p">(</span><span class="s2">&quot;hello&quot;</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">db</span><span class="o">.</span><span class="n">have</span><span class="p">(</span><span class="s2">&quot;hello&quot;</span><span class="p">)</span>
