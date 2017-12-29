@@ -40,17 +40,18 @@
             
   <div class="section" id="spddb">
 <h1>spddb<a class="headerlink" href="#spddb" title="Permalink to this headline">¶</a></h1>
+<p>Spddb is a simple python dictionary key-value based database, spddb allow you to log insert and remove operations</p>
 <div class="section" id="installation-guide">
 <h2>Installation guide<a class="headerlink" href="#installation-guide" title="Permalink to this headline">¶</a></h2>
 <p>The recommended (and easiest) way to install spddb:</p>
 <div class="highlight-sh"><div class="highlight"><pre><span></span>$ git clone https://github.com/spddb/spddb
+$ <span class="nb">cd</span> spddb
 $ python setup.py install
 </pre></div>
 </div>
 </div>
 <div class="section" id="commannds">
 <h2>Commannds<a class="headerlink" href="#commannds" title="Permalink to this headline">¶</a></h2>
-<p>The recommended (and easiest) way to install spddb:</p>
 <div class="highlight-sh"><div class="highlight"><pre><span></span>$ insert &lt;key&gt; &lt;value&gt; → Add specified key value
 $ get &lt;key&gt; → Return the value of the specified key
 $ delete &lt;key&gt; → Delete specified key
@@ -75,6 +76,22 @@ $ getsize → Return the database size in bytes
 <span class="gp">&gt;&gt;&gt; </span><span class="n">db</span><span class="o">.</span><span class="n">delete</span><span class="p">(</span><span class="s2">&quot;hello&quot;</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">db</span><span class="o">.</span><span class="n">have</span><span class="p">(</span><span class="s2">&quot;hello&quot;</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="bp">False</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="using-logging">
+<h2>Using Logging<a class="headerlink" href="#using-logging" title="Permalink to this headline">¶</a></h2>
+<p>Using spddb you can log insert and remove operations</p>
+<div class="highlight-py"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">spddb</span> <span class="kn">import</span> <span class="n">ziverdb</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">db</span> <span class="o">=</span> <span class="n">ziverdb</span><span class="p">(</span><span class="s2">&quot;test.db&quot;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">db</span><span class="o">.</span><span class="n">logfile</span> <span class="o">=</span> <span class="s2">&quot;test.log&quot;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">db</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="s2">&quot;hello&quot;</span><span class="p">,</span> <span class="s2">&quot;world&quot;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">db</span><span class="o">.</span><span class="n">delete</span><span class="p">(</span><span class="s2">&quot;hello&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-sh"><div class="highlight"><pre><span></span>$ cat test.log
+$ <span class="m">2017</span>-12-29 <span class="m">23</span>:37:06,685 Added key hello with value world
+$ <span class="m">2017</span>-12-29 <span class="m">23</span>:37:06,686 Deleted key hello
 </pre></div>
 </div>
 </div>
