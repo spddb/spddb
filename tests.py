@@ -11,13 +11,14 @@ db.insert("hello", "world")
 print db.have("hello") == True 
 print db.get("hello") == "world"
 print db.getsize() == 18 
+print db.getkeys() == ['hello']
+
 
 db.delete("hello")
 
 print db.have("hello") == False 
 print db.get("hello")  == False 
 print db.getsize()  == 2
-print db.getkeys() == ['hello']
 
 
 os.remove("hello.db")
