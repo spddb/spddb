@@ -17,6 +17,8 @@ db.delete("hello")
 print db.have("hello") == False 
 print db.get("hello")  == False 
 print db.getsize()  == 2
+print db.getkeys() == ['hello']
+
 
 os.remove("hello.db")
 
@@ -26,6 +28,7 @@ db = ziverdb("hello.db")
 
 
 db.insert("hello", "world")
+
 
 db.drop("hello.db")
 
