@@ -28,6 +28,12 @@ class ziverdb(dict):
             self.reload()
             if self.logfile:
                 self.logg("Added key %s with value %s" %(key, value))
+                
+    
+    def update(self, key, value):
+        """ Update an existed key value """
+        if self.have(key):
+            self[key] = value 
 
 
     def delete(self, key):
@@ -61,6 +67,8 @@ class ziverdb(dict):
     def getkeys(self):
         """ Return a list with database keys """
         return self.keys()
+    
+    
     
     def lenkeys(self):
         """ Return a count of database key """
