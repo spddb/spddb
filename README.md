@@ -42,3 +42,9 @@ Example Drop || Drop specified database file
 
     >>> db.drop("hello.db")
     
+    
+    
+v0.1 (2017-12-29)
+===================
+
+- First official release – consider spddb stable now.
