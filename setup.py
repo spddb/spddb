@@ -10,9 +10,12 @@ def read(fname):
     return open(path, encoding='utf-8').read()
 
 
+exec(read('spddb/version.py'))
+
+
 setup(
     name="spddb",
-    version=0.1,
+    version=__version__,
     packages=find_packages(),
 
     # development metadata
