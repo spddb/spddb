@@ -61,6 +61,11 @@ class ziverdb(dict):
     def getkeys(self):
         """ Return a list with database keys """
         return self.keys()
+    
+    def lenkeys(self):
+        """ Return a count of database key """
+        return len(self)
+    
 
 
     def getsize(self):
