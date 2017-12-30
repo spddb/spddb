@@ -42,7 +42,13 @@ Example Drop || Drop specified database file
 
     >>> db.drop("hello.db")
     
-    
+
+v0.2 (2017-12-30)
+===================
+
+- Add update method -> Update an existed key value 
+
+
     
 v0.1 (2017-12-29)
 ===================
